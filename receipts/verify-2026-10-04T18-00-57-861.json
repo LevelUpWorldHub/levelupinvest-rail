@@ -1,0 +1,261 @@
+{
+  "kind": "levelupinvest-rail verify receipt",
+  "timestamp": "2026-10-04T18:00:57.861Z",
+  "timezoneNote": "ISO timestamp is UTC",
+  "gitHeadAtRun": "none (no commits yet)",
+  "sourceTreeSha256": "6dfa017e1856fa3382909931e712c4c1390f7e59827acfd68a863379bf834221",
+  "node": "v20.19.2",
+  "overall": "PASS",
+  "typecheck": {
+    "exitCode": 0,
+    "ok": true
+  },
+  "tests": {
+    "total": 183,
+    "passed": 183,
+    "failed": 0,
+    "files": 13,
+    "exitCode": 0
+  },
+  "drills": {
+    "mutation": {
+      "baseline": {
+        "total": 183,
+        "passed": 183,
+        "failed": 0
+      },
+      "mutations": [
+        {
+          "id": "M1",
+          "description": "inject a write-capable provider method (placeOrder) into MockProvider",
+          "file": "src/providers/mock.ts",
+          "find": "  async getRecurring(): Promise<RecurringItem[]> {",
+          "replace": "  async placeOrder(symbol: string): Promise<void> {\n    void symbol;\n  }\n\n  async getRecurring(): Promise<RecurringItem[]> {",
+          "mutatedFailed": 4,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (b): provider interface and exported classes have no write-capable methods class MockProvider: no write-verb methods (prototype + statics)",
+            "HARD LINES (b): provider interface and exported classes have no write-capable methods provider MockProvider: methods are exactly read methods (+ Plaid link helpers, toJSON)",
+            "HARD LINES (b): provider interface and exported classes have no write-capable methods MockProvider instance exposes no write-capable properties",
+            "HARD LINES (a): static scan proves forbidden code paths do not exist no forbidden identifiers/endpoints in src/providers/mock.ts"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M2",
+          "description": "add a forbidden endpoint (/transfer/create) to ALLOWED_PLAID_ENDPOINTS",
+          "file": "src/plaid/allowlist.ts",
+          "find": "  \"/transactions/recurring/get\",\n] as const;",
+          "replace": "  \"/transactions/recurring/get\",\n  \"/transfer/create\",\n] as const;",
+          "mutatedFailed": 4,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (c): Plaid allowlist throws before any network allowlist is exactly the expected read endpoints",
+            "HARD LINES (c): Plaid allowlist throws before any network rejects \"/transfer/create\" without touching the network",
+            "HARD LINES (c): Plaid allowlist throws before any network without fetchImpl the client would use global fetch — which is blocked here — only after the allowlist passes",
+            "HARD LINES (a): static scan proves forbidden code paths do not exist no forbidden identifiers/endpoints in src/plaid/allowlist.ts"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M3",
+          "description": "request a forbidden Link product (payment_initiation) alongside transactions",
+          "file": "src/plaid/allowlist.ts",
+          "find": "export const ALLOWED_LINK_PRODUCTS = [\"transactions\"] as const;",
+          "replace": "export const ALLOWED_LINK_PRODUCTS = [\"transactions\", \"payment_initiation\"] as const;",
+          "mutatedFailed": 4,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (c): Plaid allowlist throws before any network accepts every allowlisted path with POST (and calls only plaid hosts)",
+            "HARD LINES (f): Link token request builder emits products == ['transactions'] only",
+            "HARD LINES (f): Link token request the request actually sent over the (fake) wire has products == ['transactions']",
+            "HARD LINES (a): static scan proves forbidden code paths do not exist no forbidden identifiers/endpoints in src/plaid/allowlist.ts"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M4",
+          "description": "add a payment SDK (stripe) to package.json",
+          "file": "package.json",
+          "find": "\"devDependencies\": {",
+          "replace": "\"devDependencies\": {\n    \"stripe\": \"^17.0.0\",",
+          "mutatedFailed": 2,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (e): dependencies contain no payment/brokerage SDKs package.json has only allowlisted packages (read-only 'plaid' is the sole finance SDK permitted)",
+            "HARD LINES (e): dependencies contain no payment/brokerage SDKs no dependency matches forbidden tokens or payment/brokerage vendor names"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M5",
+          "description": "add a write tool (place_order, readOnly:false) to tools.json",
+          "file": "tools.json",
+          "find": "\"tools\": [",
+          "replace": "\"tools\": [\n    { \"name\": \"place_order\", \"description\": \"x\", \"readOnly\": false, \"input_schema\": { \"type\": \"object\", \"properties\": {}, \"required\": [], \"additionalProperties\": false } },",
+          "mutatedFailed": 3,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (a): static scan proves forbidden code paths do not exist no forbidden identifiers/endpoints in tools.json",
+            "HARD LINES (d): tools.json exposes only read tools tools.json is in sync with src/tools.ts (regenerate with pnpm gen:tools)",
+            "HARD LINES (d): tools.json exposes only read tools exposes exactly the approved read-only tool set"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M6",
+          "description": "add a write method (submitOrder) to the AggregationProvider interface",
+          "file": "src/providers/types.ts",
+          "find": "  getRecurring(): Promise<RecurringItem[]>;\n}",
+          "replace": "  getRecurring(): Promise<RecurringItem[]>;\n  submitOrder(): Promise<void>;\n}",
+          "mutatedFailed": 2,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (b): provider interface and exported classes have no write-capable methods AggregationProvider interface source declares exactly the read methods",
+            "HARD LINES (a): static scan proves forbidden code paths do not exist no forbidden identifiers/endpoints in src/providers/types.ts"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        },
+        {
+          "id": "M7",
+          "description": "allow HTTP PUT in the HTTP layer",
+          "file": "src/plaid/allowlist.ts",
+          "find": "export const ALLOWED_HTTP_METHODS = [\"POST\"] as const;",
+          "replace": "export const ALLOWED_HTTP_METHODS = [\"POST\", \"PUT\"] as const;",
+          "mutatedFailed": 2,
+          "mutatedExit": 1,
+          "sampleFailures": [
+            "HARD LINES (c): Plaid allowlist throws before any network allowlist is exactly the expected read endpoints",
+            "HARD LINES (c): Plaid allowlist throws before any network rejects HTTP method \"PUT\" even on an allowed path"
+          ],
+          "revertedPassed": 183,
+          "revertedTotal": 183,
+          "revertedExit": 0,
+          "caught": true,
+          "restored": true
+        }
+      ],
+      "ok": true,
+      "realTreeUntouched": true
+    },
+    "mockEndToEnd": {
+      "ok": true,
+      "provider": "mock",
+      "providerCommand": {
+        "provider": "mock",
+        "reason": "mock (PLAID_CLIENT_ID/PLAID_SECRET/PLAID_ENV=sandbox|production not all set)"
+      },
+      "budget": {
+        "month": "2026-09",
+        "totalLimitCents": 396200,
+        "totalSpentCents": 490868,
+        "overCategories": [
+          "dining",
+          "shopping"
+        ]
+      },
+      "spendingTop3": [
+        {
+          "category": "housing",
+          "totalCents": 555000,
+          "count": 3,
+          "share": 0.3802
+        },
+        {
+          "category": "groceries",
+          "totalCents": 240321,
+          "count": 29,
+          "share": 0.1646
+        },
+        {
+          "category": "dining",
+          "totalCents": 203033,
+          "count": 54,
+          "share": 0.1391
+        }
+      ],
+      "averageDailySpendCents": 16221,
+      "recurringDetected": 9,
+      "estimatedMonthlyRecurringOutflowCents": 242315,
+      "goal": {
+        "requiredMonthlyContributionCents": 90052,
+        "onTrackAt900PerMonth": false,
+        "projectedAtTargetDateCents": 2999375
+      },
+      "netWorth": {
+        "assetsCents": 6628847,
+        "liabilitiesCents": 1968466,
+        "netWorthCents": 4660381,
+        "byType": {
+          "depository": 2367317,
+          "credit": -128466,
+          "investment": 4261530,
+          "loan": -1840000
+        },
+        "lines": [
+          {
+            "accountId": "acc_chk",
+            "name": "Total Checking",
+            "type": "depository",
+            "valueCents": 542317
+          },
+          {
+            "accountId": "acc_sav",
+            "name": "Online Savings",
+            "type": "depository",
+            "valueCents": 1825000
+          },
+          {
+            "accountId": "acc_cc",
+            "name": "Quicksilver Card",
+            "type": "credit",
+            "valueCents": -128466
+          },
+          {
+            "accountId": "acc_inv",
+            "name": "Individual Investing",
+            "type": "investment",
+            "valueCents": 4261530
+          },
+          {
+            "accountId": "acc_loan",
+            "name": "Student Loan",
+            "type": "loan",
+            "valueCents": -1840000
+          }
+        ]
+      }
+    },
+    "secrets": {
+      "filesScanned": 45,
+      "findings": [],
+      "trackedEnvFiles": [],
+      "envExampleValuesEmpty": true,
+      "ok": true
+    }
+  }
+}

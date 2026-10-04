@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "rail": "levelupinvest-rail",
+  "mode": "inform",
+  "readOnly": true,
+  "notice": "Read-only rail: nothing exposed here changes any account.",
+  "tools": [
+    {
+      "name": "list_institutions",
+      "description": "List supported financial institutions (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_institutions",
+      "description": "Search financial institutions by name (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_accounts",
+      "description": "List linked accounts (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_balances",
+      "description": "Get current balances for linked accounts (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "accountIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_transactions",
+      "description": "List transactions in a date window (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 730,
+            "description": "Lookback window, default 90"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD reference date"
+          },
+          "accountIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_recurring",
+      "description": "Get recurring income and expense streams reported by the provider (read-only).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "budget_status",
+      "description": "Evaluate a monthly budget (over/under per category). Pass limitsCents by category, or omit to use a suggested budget from past months.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string",
+            "description": "YYYY-MM; defaults to month of asOf"
+          },
+          "limitsCents": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Keys: income, housing, groceries, dining, transportation, utilities, subscriptions, shopping, health, entertainment, travel, debt, fees, other"
+          },
+          "asOf": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "spending_summary",
+      "description": "Spending by category and merchant, monthly trend, average daily spend.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 730,
+            "description": "Lookback window, default 90"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD reference date"
+          },
+          "topMerchants": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "detect_recurring",
+      "description": "Detect recurring charges/income from transaction history and estimate monthly cost.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 730,
+            "description": "Lookback window, default 90"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD reference date"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "goal_projection",
+      "description": "Project a savings goal given a monthly contribution.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "targetCents": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Goal amount in cents"
+          },
+          "currentCents": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Already saved, in cents"
+          },
+          "targetDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "annualReturn": {
+            "type": "number",
+            "description": "Nominal annual return, e.g. 0.04"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD; defaults to today (or the mock reference date)"
+          },
+          "monthlyContributionCents": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "targetCents",
+          "targetDate",
+          "monthlyContributionCents"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "goal_required_contribution",
+      "description": "Monthly contribution required to hit a savings goal by its target date.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "targetCents": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Goal amount in cents"
+          },
+          "currentCents": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Already saved, in cents"
+          },
+          "targetDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "annualReturn": {
+            "type": "number",
+            "description": "Nominal annual return, e.g. 0.04"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD; defaults to today (or the mock reference date)"
+          }
+        },
+        "required": [
+          "targetCents",
+          "targetDate"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "goal_what_if",
+      "description": "Compare what-if scenarios (contribution, return, date, lump sum) for a savings goal.",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "targetCents": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Goal amount in cents"
+          },
+          "currentCents": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Already saved, in cents"
+          },
+          "targetDate": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
+          "annualReturn": {
+            "type": "number",
+            "description": "Nominal annual return, e.g. 0.04"
+          },
+          "asOf": {
+            "type": "string",
+            "description": "YYYY-MM-DD; defaults to today (or the mock reference date)"
+          },
+          "monthlyContributionCents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "monthlyContributionCents": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "annualReturn": {
+                  "type": "number"
+                },
+                "targetDate": {
+                  "type": "string"
+                },
+                "extraLumpSumCents": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "targetCents",
+          "targetDate",
+          "monthlyContributionCents",
+          "scenarios"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "net_worth",
+      "description": "Net worth summary from account balances (assets minus liabilities).",
+      "readOnly": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

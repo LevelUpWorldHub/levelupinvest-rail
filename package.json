@@ -1,0 +1,23 @@
+{
+  "name": "levelupinvest-rail",
+  "version": "0.1.0",
+  "description": "Read-only budgeting, spending and goal-planning rail for LevelUpInvest (inform-only).",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=20" },
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "cli": "tsx src/cli.ts",
+    "gen:tools": "tsx scripts/gen-tools.ts",
+    "verify": "tsx scripts/verify.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
