@@ -4,15 +4,18 @@
   "description": "Read-only budgeting, spending and goal-planning rail for LevelUpInvest (inform-only).",
   "private": true,
   "type": "module",
-  "license": "UNLICENSED",
-  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "packageManager": "pnpm@9.15.9",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "cli": "tsx src/cli.ts",
     "gen:tools": "tsx scripts/gen-tools.ts",
-    "verify": "tsx scripts/verify.ts"
+    "verify": "tsx scripts/verify.ts",
+    "demo:build": "tsx scripts/build-demo.ts"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",

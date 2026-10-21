@@ -1,0 +1,503 @@
+{
+  "provider": "mock",
+  "budget": {
+    "budget": {
+      "month": "2026-09",
+      "limitsCents": {
+        "housing": 185000,
+        "groceries": 50000,
+        "dining": 30000,
+        "transportation": 25000,
+        "utilities": 25000,
+        "subscriptions": 5000,
+        "shopping": 30000,
+        "health": 10000,
+        "entertainment": 5000,
+        "debt": 31200
+      }
+    },
+    "report": {
+      "month": "2026-09",
+      "lines": [
+        {
+          "category": "housing",
+          "limitCents": 185000,
+          "spentCents": 185000,
+          "remainingCents": 0,
+          "percentUsed": 1,
+          "status": "at_limit"
+        },
+        {
+          "category": "groceries",
+          "limitCents": 50000,
+          "spentCents": 49396,
+          "remainingCents": 604,
+          "percentUsed": 0.9879,
+          "status": "under"
+        },
+        {
+          "category": "dining",
+          "limitCents": 30000,
+          "spentCents": 73634,
+          "remainingCents": -43634,
+          "percentUsed": 2.4545,
+          "status": "over"
+        },
+        {
+          "category": "transportation",
+          "limitCents": 25000,
+          "spentCents": 16652,
+          "remainingCents": 8348,
+          "percentUsed": 0.6661,
+          "status": "under"
+        },
+        {
+          "category": "utilities",
+          "limitCents": 25000,
+          "spentCents": 20815,
+          "remainingCents": 4185,
+          "percentUsed": 0.8326,
+          "status": "under"
+        },
+        {
+          "category": "subscriptions",
+          "limitCents": 5000,
+          "spentCents": 2748,
+          "remainingCents": 2252,
+          "percentUsed": 0.5496,
+          "status": "under"
+        },
+        {
+          "category": "shopping",
+          "limitCents": 30000,
+          "spentCents": 105576,
+          "remainingCents": -75576,
+          "percentUsed": 3.5192,
+          "status": "over"
+        },
+        {
+          "category": "health",
+          "limitCents": 10000,
+          "spentCents": 5847,
+          "remainingCents": 4153,
+          "percentUsed": 0.5847,
+          "status": "under"
+        },
+        {
+          "category": "entertainment",
+          "limitCents": 5000,
+          "spentCents": 0,
+          "remainingCents": 5000,
+          "percentUsed": 0,
+          "status": "under"
+        },
+        {
+          "category": "debt",
+          "limitCents": 31200,
+          "spentCents": 31200,
+          "remainingCents": 0,
+          "percentUsed": 1,
+          "status": "at_limit"
+        }
+      ],
+      "totalLimitCents": 396200,
+      "totalSpentCents": 490868,
+      "totalRemainingCents": -94668,
+      "overCategories": [
+        "dining",
+        "shopping"
+      ],
+      "unbudgetedSpendCents": 0,
+      "projectedMonthEndSpendCents": null,
+      "status": "over"
+    }
+  },
+  "spending": {
+    "startDate": "2026-07-04",
+    "endDate": "2026-10-01",
+    "byCategory": [
+      {
+        "category": "housing",
+        "totalCents": 555000,
+        "count": 3,
+        "share": 0.3802
+      },
+      {
+        "category": "groceries",
+        "totalCents": 240321,
+        "count": 29,
+        "share": 0.1646
+      },
+      {
+        "category": "dining",
+        "totalCents": 203033,
+        "count": 54,
+        "share": 0.1391
+      },
+      {
+        "category": "shopping",
+        "totalCents": 173274,
+        "count": 18,
+        "share": 0.1187
+      },
+      {
+        "category": "debt",
+        "totalCents": 93600,
+        "count": 3,
+        "share": 0.0641
+      },
+      {
+        "category": "utilities",
+        "totalCents": 56600,
+        "count": 6,
+        "share": 0.0388
+      },
+      {
+        "category": "transportation",
+        "totalCents": 51506,
+        "count": 12,
+        "share": 0.0353
+      },
+      {
+        "category": "travel",
+        "totalCents": 38420,
+        "count": 1,
+        "share": 0.0263
+      },
+      {
+        "category": "health",
+        "totalCents": 28887,
+        "count": 6,
+        "share": 0.0198
+      },
+      {
+        "category": "entertainment",
+        "totalCents": 11011,
+        "count": 3,
+        "share": 0.0075
+      },
+      {
+        "category": "subscriptions",
+        "totalCents": 8244,
+        "count": 6,
+        "share": 0.0056
+      }
+    ],
+    "topMerchants": [
+      {
+        "merchant": "Maple Court Apartments",
+        "totalCents": 555000,
+        "count": 3
+      },
+      {
+        "merchant": "Nelnet Servicing",
+        "totalCents": 93600,
+        "count": 3
+      },
+      {
+        "merchant": "Safeway",
+        "totalCents": 90859,
+        "count": 13
+      },
+      {
+        "merchant": "Amazon",
+        "totalCents": 86444,
+        "count": 10
+      },
+      {
+        "merchant": "Whole Foods",
+        "totalCents": 83348,
+        "count": 10
+      }
+    ],
+    "monthlyTrend": [
+      {
+        "month": "2026-07",
+        "spendCents": 265956,
+        "incomeCents": 576388,
+        "netCents": 310432,
+        "partial": true,
+        "spendChange": null
+      },
+      {
+        "month": "2026-08",
+        "spendCents": 502160,
+        "incomeCents": 576318,
+        "netCents": 74158,
+        "partial": false,
+        "spendChange": null
+      },
+      {
+        "month": "2026-09",
+        "spendCents": 490868,
+        "incomeCents": 576173,
+        "netCents": 85305,
+        "partial": false,
+        "spendChange": -0.0225
+      },
+      {
+        "month": "2026-10",
+        "spendCents": 200912,
+        "incomeCents": 0,
+        "netCents": -200912,
+        "partial": true,
+        "spendChange": null
+      }
+    ],
+    "averageDailySpendCents": 16221
+  },
+  "recurring": {
+    "items": [
+      {
+        "id": "det_acmecorp_in",
+        "accountId": "acc_chk",
+        "merchant": "Acme Corp",
+        "description": "ACME CORP PAYROLL",
+        "category": "income",
+        "frequency": "biweekly",
+        "direction": "inflow",
+        "averageAmountCents": 285000,
+        "lastDate": "2026-09-18",
+        "nextDate": "2026-10-02",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_maplecourtapartments_out",
+        "accountId": "acc_chk",
+        "merchant": "Maple Court Apartments",
+        "description": "MAPLE COURT APTS RENT",
+        "category": "housing",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 185000,
+        "lastDate": "2026-10-01",
+        "nextDate": "2026-11-01",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_nelnetservicing_out",
+        "accountId": "acc_chk",
+        "merchant": "Nelnet Servicing",
+        "description": "NELNET LOAN SERVICING",
+        "category": "debt",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 31200,
+        "lastDate": "2026-09-25",
+        "nextDate": "2026-10-26",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_citypowerlight_out",
+        "accountId": "acc_chk",
+        "merchant": "City Power & Light",
+        "description": "CITY POWER AND LIGHT",
+        "category": "utilities",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 10868,
+        "lastDate": "2026-09-15",
+        "nextDate": "2026-10-16",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_fibernet_out",
+        "accountId": "acc_chk",
+        "merchant": "FiberNet",
+        "description": "FIBERNET INTERNET",
+        "category": "utilities",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 7999,
+        "lastDate": "2026-09-08",
+        "nextDate": "2026-10-09",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_mockallybank_in",
+        "accountId": "acc_sav",
+        "merchant": "Mock Ally Bank",
+        "description": "INTEREST EARNED",
+        "category": "income",
+        "frequency": "monthly",
+        "direction": "inflow",
+        "averageAmountCents": 6293,
+        "lastDate": "2026-09-28",
+        "nextDate": "2026-10-29",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_ironworksgym_out",
+        "accountId": "acc_chk",
+        "merchant": "Iron Works Gym",
+        "description": "IRON WORKS GYM",
+        "category": "health",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 4500,
+        "lastDate": "2026-09-05",
+        "nextDate": "2026-10-06",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_streamflix_out",
+        "accountId": "acc_cc",
+        "merchant": "StreamFlix",
+        "description": "STREAMFLIX.COM",
+        "category": "subscriptions",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 1549,
+        "lastDate": "2026-09-12",
+        "nextDate": "2026-10-13",
+        "active": true,
+        "source": "detected"
+      },
+      {
+        "id": "det_tunebox_out",
+        "accountId": "acc_cc",
+        "merchant": "TuneBox",
+        "description": "TUNEBOX PREMIUM",
+        "category": "subscriptions",
+        "frequency": "monthly",
+        "direction": "outflow",
+        "averageAmountCents": 1199,
+        "lastDate": "2026-09-20",
+        "nextDate": "2026-10-21",
+        "active": true,
+        "source": "detected"
+      }
+    ],
+    "estimatedMonthlyRecurringOutflowCents": 242315
+  },
+  "goal": {
+    "required": {
+      "requiredMonthlyContributionCents": 90052
+    },
+    "projection": {
+      "monthlyContributionCents": 90000,
+      "annualReturn": 0.04,
+      "monthsToTarget": 12,
+      "projectedAtTargetDateCents": 2999375,
+      "shortfallCents": 625,
+      "onTrack": false,
+      "monthsUntilReached": 13,
+      "projectedCompletionDate": "2027-11-01"
+    },
+    "scenarios": [
+      {
+        "label": "baseline",
+        "goal": {
+          "name": "Emergency fund",
+          "targetCents": 3000000,
+          "currentCents": 1825000,
+          "targetDate": "2027-10-01",
+          "annualReturn": 0.04
+        },
+        "requiredMonthlyContributionCents": 90052,
+        "projection": {
+          "monthlyContributionCents": 90000,
+          "annualReturn": 0.04,
+          "monthsToTarget": 12,
+          "projectedAtTargetDateCents": 2999375,
+          "shortfallCents": 625,
+          "onTrack": false,
+          "monthsUntilReached": 13,
+          "projectedCompletionDate": "2027-11-01"
+        }
+      },
+      {
+        "label": "save $1,200/mo",
+        "goal": {
+          "name": "Emergency fund",
+          "targetCents": 3000000,
+          "currentCents": 1825000,
+          "targetDate": "2027-10-01",
+          "annualReturn": 0.04
+        },
+        "requiredMonthlyContributionCents": 90052,
+        "projection": {
+          "monthlyContributionCents": 120000,
+          "annualReturn": 0.04,
+          "monthsToTarget": 12,
+          "projectedAtTargetDateCents": 3366049,
+          "shortfallCents": 0,
+          "onTrack": true,
+          "monthsUntilReached": 10,
+          "projectedCompletionDate": "2027-08-01"
+        }
+      },
+      {
+        "label": "extra $2,000 lump sum",
+        "goal": {
+          "name": "Emergency fund",
+          "targetCents": 3000000,
+          "currentCents": 2025000,
+          "targetDate": "2027-10-01",
+          "annualReturn": 0.04
+        },
+        "requiredMonthlyContributionCents": 73022,
+        "projection": {
+          "monthlyContributionCents": 90000,
+          "annualReturn": 0.04,
+          "monthsToTarget": 12,
+          "projectedAtTargetDateCents": 3207523,
+          "shortfallCents": 0,
+          "onTrack": true,
+          "monthsUntilReached": 10,
+          "projectedCompletionDate": "2027-08-01"
+        }
+      }
+    ]
+  },
+  "netWorth": {
+    "assetsCents": 6628847,
+    "liabilitiesCents": 1968466,
+    "netWorthCents": 4660381,
+    "byType": {
+      "depository": 2367317,
+      "credit": -128466,
+      "investment": 4261530,
+      "loan": -1840000
+    },
+    "lines": [
+      {
+        "accountId": "acc_chk",
+        "name": "Total Checking",
+        "type": "depository",
+        "valueCents": 542317
+      },
+      {
+        "accountId": "acc_sav",
+        "name": "Online Savings",
+        "type": "depository",
+        "valueCents": 1825000
+      },
+      {
+        "accountId": "acc_cc",
+        "name": "Quicksilver Card",
+        "type": "credit",
+        "valueCents": -128466
+      },
+      {
+        "accountId": "acc_inv",
+        "name": "Individual Investing",
+        "type": "investment",
+        "valueCents": 4261530
+      },
+      {
+        "accountId": "acc_loan",
+        "name": "Student Loan",
+        "type": "loan",
+        "valueCents": -1840000
+      }
+    ]
+  }
+}
