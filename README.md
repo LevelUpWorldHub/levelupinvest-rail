@@ -6,7 +6,7 @@ A **read-only** bot rail for LevelUpInvest: budgeting, spending analysis, goal p
 
 Runs on **deterministic mock data** by default. It talks to Plaid only if you explicitly provide Plaid credentials.
 
-**Live demo (mock data only):** DEMO_URL — budget, spending, recurring charges, goal what-ifs and net worth rendered from the built-in `MockProvider`. Nothing in the demo is real and no bank is connected.
+**Live demo (mock data only):** https://levelupinvest-rail-demo.vercel.app — budget, spending, recurring charges, goal what-ifs and net worth rendered from the built-in `MockProvider`. Nothing in the demo is real and no bank is connected.
 
 ## Who it's for
 
