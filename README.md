@@ -6,6 +6,22 @@ A **read-only** bot rail for LevelUpInvest: budgeting, spending analysis, goal p
 
 Runs on **deterministic mock data** by default. It talks to Plaid only if you explicitly provide Plaid credentials.
 
+**Live demo (mock data only):** DEMO_URL — budget, spending, recurring charges, goal what-ifs and net worth rendered from the built-in `MockProvider`. Nothing in the demo is real and no bank is connected.
+
+## Who it's for
+
+Builders of AI assistants or personal-finance bots who want safe, read-only money tools (budgeting, spending, goals, net worth) that work out of the box on mock data and can later read real accounts through Plaid, with tests that prove the bot can never move money or trade.
+
+## Mock-data demo
+
+```bash
+pnpm install
+pnpm demo:build      # writes demo/data.json from MockProvider (no network, no env vars)
+npx serve demo       # or any static server, then open http://localhost:3000
+```
+
+`demo/` is a static site (`index.html` + `data.json`), so it can be hosted anywhere. It never uses Plaid.
+
 ## Quick start
 
 ```bash
@@ -97,3 +113,7 @@ receipts/        verify-<timestamp>.json, DRILL.md
 ```
 
 See also: [`SECURITY.md`](SECURITY.md), [`RAIL.md`](RAIL.md).
+
+## License
+
+MIT — see [LICENSE](LICENSE). Not financial advice.
