@@ -117,3 +117,8 @@ See also: [`SECURITY.md`](SECURITY.md), [`RAIL.md`](RAIL.md).
 ## License
 
 MIT — see [LICENSE](LICENSE). Not financial advice.
+
+
+## Subscription web app (Phase 1, test mode)
+
+A Next.js SaaS wrapper lives in [`web/`](web/README.md): email magic-link sign-in, Stripe Checkout subscriptions (test mode only), Plaid Link (sandbox), encrypted token storage and per-user isolation. The rail in `src/` is unchanged and still read-only.
