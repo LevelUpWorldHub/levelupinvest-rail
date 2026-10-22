@@ -4,7 +4,7 @@ import { ROOT, read, walk } from "./helpers/scan.js";
 import { scanText } from "./helpers/secrets.js";
 
 describe("secrets hygiene", () => {
-  const files = walk(ROOT, (rel) => /^(node_modules|\.git|dist|coverage)(\/|$)/.test(rel) || rel === "pnpm-lock.yaml" || (/^\.env(\.|$)/.test(rel) && rel !== ".env.example"));
+  const files = walk(ROOT, (rel) => /(^|\/)(node_modules|\.git|\.next|dist|coverage)(\/|$)/.test(rel) || rel === "pnpm-lock.yaml" || (/^\.env(\.|$)/.test(rel) && rel !== ".env.example"));
 
   it("scanner detects synthetic secrets (self-check)", () => {
     const fakes = [
