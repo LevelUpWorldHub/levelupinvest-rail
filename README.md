@@ -1,5 +1,7 @@
 # levelupinvest-rail
 
+[![CI](https://github.com/LevelUpWorldHub/levelupinvest-rail/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/LevelUpWorldHub/levelupinvest-rail/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 A **read-only** bot rail for LevelUpInvest: budgeting, spending analysis, goal planning and net-worth summaries over bank/card/loan/investment *data*.
 
 > **No money movement. No trade execution.** These are structural hard lines, not settings. The code paths do not exist, and the test suite fails if anyone adds them. See [Hard lines](#hard-lines).
@@ -110,6 +112,7 @@ src/tools.ts     tool registry -> tools.json
 scripts/         verify.ts, gen-tools.ts
 tests/           unit tests + hardlines.*.test.ts proofs
 receipts/        verify-<timestamp>.json, DRILL.md
+web/             Next.js subscription app (Phase 1, test mode), see web/README.md
 ```
 
 See also: [`SECURITY.md`](SECURITY.md), [`RAIL.md`](RAIL.md).
@@ -117,7 +120,6 @@ See also: [`SECURITY.md`](SECURITY.md), [`RAIL.md`](RAIL.md).
 ## License
 
 MIT — see [LICENSE](LICENSE). Not financial advice.
-
 
 ## Subscription web app (Phase 1, test mode)
 
